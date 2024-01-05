@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "NodeNext",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "NodeNext",
+    "sourceMap": false,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "ts-node": { "esm": true },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
+}
