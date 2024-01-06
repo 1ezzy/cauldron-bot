@@ -8,7 +8,9 @@
     "moduleResolution": "NodeNext",
     "sourceMap": false,
     "typeRoots": ["node_modules/@types"],
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   },
   "ts-node": { "esm": true },
   "include": ["./**/*.ts"],

@@ -1,15 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-const APIReferenceSchema = new mongoose.Schema({
-  index: String,
-  name: String,
-  url: String,
-});
-
-const AreaOfEffectSchema = new mongoose.Schema({
-  size: Number,
-  type: String,
-});
+import { AreaOfEffectSchema, APIReferenceSchema } from "./genericSchemas.ts";
 
 export const SpellSchema = new mongoose.Schema({
   index: String,

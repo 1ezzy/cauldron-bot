@@ -1,7 +1,9 @@
 import { config } from "dotenv";
 import mongoose from "mongoose";
 import { Client, Events, GatewayIntentBits, Message } from "discord.js";
-import { spellCommand } from "./commands/spell.js";
+import { spellCommand } from "./commands/spellComand.ts";
+import { spellEmbed } from "./embeds/spellEmbed.ts";
+import { SpellDoc } from "./types/spellType.ts";
 
 config();
 
@@ -23,8 +25,11 @@ client.on(Events.MessageCreate, async (message: Message) => {
     const spellName = message.content.slice(searchText.length);
     const spellIndex = spellName.replace(/\s+/g, "-");
 
-    const spell = await spellCommand(spellIndex);
-    if (spell) message.reply(spell.desc[0]);
+    const spell: SpellDoc | null = await spellCommand(spellIndex);
+    if (spell) {
+      const spellMessage = spellEmbed(spell, message.author.displayName);
+      message.reply({ embeds: [spellMessage] });
+    }
   }
 });
 
