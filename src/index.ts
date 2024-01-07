@@ -20,7 +20,7 @@ const client: Client<boolean> = new Client({
 });
 
 client.on(Events.MessageCreate, async (message: Message) => {
-  const searchText = "!spell ";
+  const searchText = ".spell ";
   if (message.content.startsWith(searchText)) {
     const spellName = message.content.slice(searchText.length);
     const spellIndex = spellName.replace(/\s+/g, "-");
