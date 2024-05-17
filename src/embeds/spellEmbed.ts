@@ -19,7 +19,13 @@ export const spellEmbed = (spell: SpellDoc, author: string) => {
       },
       {
         name: "\u200b",
-        value: `${spell.desc.map((value) => value).join("\n\n")}`,
+        value: `${
+          spell.desc.map((value) => value).join("\n\n") +
+          (spell.higher_level.length > 0
+            ? "\n\n**At Higher Levels:**\n" +
+              spell.higher_level.map((value) => value).join("\n\n")
+            : "")
+        }`,
       }
     );
 };
